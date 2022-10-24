@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>一键生成二次元人物</title>
+  <style>
+    .goodsimg {
+        display: flex;
+    }
+    #file_input {
+        opacity: 0;
+        width: 200px;
+        height: 200px;
+    }
+    #txt1 {
+      width: 75%;
+    }
+    #div1 {
+      margin: 30px 30px 30px 30px;
+      padding: 20px 50px 20px 50px;
+      border: 2px solid black;
+    }
+  </style>
+</head>
+<body>
+  <div id="div1">
+    <p>
+      <p>
+        名称：
+        暗鸦法
+        圣光法
+        墨染希
+      </p>
+
+      <p>
+        头发：
+        短发
+        白色短发
+        
+        长发
+        黑色长发
+        白色长发
+        金色长发
+        浅色长发
+        深绿色长发
+        深蓝色长发
+        
+        金发
+        橙发
+        蓝发
+        粉色头发
+        
+        双马尾
+        白色双马尾
+        黑色双马尾
+        棕色双马尾
+        紫色双马尾
+        浅色双马尾
+        单马尾
+        金色单马尾
+      </p>
+
+      <p>
+        瞳孔颜色：
+        绿色瞳孔
+        粉色瞳孔
+        紫色瞳孔
+        蓝色瞳孔
+        金色瞳孔
+      </p>
+
+      <p>
+        服装：
+        校服
+        和服
+        蝴蝶结
+        红色蝴蝶结
+        蓝色蝴蝶结
+        女仆装
+        白袜
+        白色衣服
+        白色长袍
+        白色裙子
+        白色连衣裙
+        白色帽子
+        红色帽子
+        深蓝色裙子
+        围巾
+        粉色外套
+      </p>
+
+      <p>
+        动作：
+        擦汗
+        吃甜点
+        吃布丁
+        吃甜甜圈
+        吃面包
+        读书
+        抱着玩偶猫
+        手捧白花
+        侧躺
+        读书
+        抓蝴蝶
+        笑
+      </p>
+
+      <p>
+        其他人物特征：
+        猫耳
+        猫娘
+        日系
+        天使
+      </p>
+
+      <p>
+        背景：
+        月亮背景
+        树
+        枫树
+        银杏
+        樱花
+        黄花背景
+        玫瑰背景
+        沙滩
+        晚霞背景
+        向日葵背景
+        风
+        空中有花瓣
+        空中有水滴
+        阳光
+        草地
+        南极
+        穹顶
+      </p>
+
+      <p>
+        色系：
+        红色系
+        粉色系
+      </p>
+
+      <p>
+        画面配角：
+        鹰
+        企鹅
+        两只猫
+      </p>
+
+      <p>
+        输入图像特征，如：<b>樱花，浅色长发，粉色外套</b> 
+      </p>
+      
+    </p>
+  </div>
+
+  <div>
+    <form name="form1">      
+        <span>请输入图像特征：</span>
+        <input id='txt1' type="text" autocomplete="off" onkeypress="sender()"></input>
+        
+        <!-- 注意类型必须是普通按钮button，而不是提交表单submit -->
+        <button type='button' onclick="cheatepic()"> 
+          一键生成二次元人物
+        </button>
+    </form>
+  </div>
+
+  <div id="targetdiv"></div>
+
+  <script>
+    // function sender() {
+    //   if(event.keyCode===13){ // 回车
+    //      cheatepic()
+    //   }
+    // }
+
+    var img = document.getElementById("img"); // 获取显示图片的div元素
+    var input = document.getElementById("file_input"); // 获取选择图片的input元素
+
+
+    // 判断本浏览器是否支持这个API。
+    if (typeof FileReader === 'undefined') {
+        aaa.innerHTML = "抱歉，你的浏览器不支持 FileReader";
+        input.setAttribute('disabled', 'disabled');
+    } else {
+        input.addEventListener('change', readFile, false); // 如果支持就监听改变事件，一旦改变了就运行readFile函数。
+    }
+
+    function cheatepic(){
+      var temp=document.form1.txt1.value;   // 这里第一个“.”后面必须是form标签的name而不能是id；而第二个“.”后id和name均可。
+      var fileroad = "pic-dataset/"+temp+".png"; // 获取file对象
+      
+      var targetdiv = document.getElementById("targetdiv");
+      targetdiv.innerHTML = ' <div class="input-inline goodsimg"> \
+                                  <input type="file" id="file_input" /> \
+                                  <img id="img" src="'+fileroad+'" alt=""> \
+                              </div>';
+    }
+
+  </script>
+</body>
+</html>
