@@ -57,18 +57,26 @@
         黑色双马尾
         棕色双马尾
         紫色双马尾
+        粉色双马尾
         浅色双马尾
         单马尾
+        橙色单马尾
         金色单马尾
       </p>
 
       <p>
         瞳孔颜色：
+        棕色瞳孔
+        红色瞳孔
         绿色瞳孔
+        蓝色瞳孔
         粉色瞳孔
         紫色瞳孔
-        蓝色瞳孔
         金色瞳孔
+        橙色瞳孔
+        黑色瞳孔
+        深绿色瞳孔
+        异色瞳孔
       </p>
 
       <p>
@@ -86,6 +94,7 @@
         白色连衣裙
         白色帽子
         红色帽子
+        红色裙子
         深蓝色裙子
         围巾
         粉色外套
@@ -93,16 +102,17 @@
 
       <p>
         动作：
-        擦汗
         吃甜点
         吃布丁
         吃甜甜圈
         吃面包
+        擦汗
         读书
+        喂猫
         抱着玩偶猫
         手捧白花
         侧躺
-        读书
+        鸭子坐
         抓蝴蝶
         笑
       </p>
@@ -113,11 +123,14 @@
         猫娘
         日系
         天使
+        原神甘雨
+        羊角
       </p>
 
       <p>
         背景：
         月亮背景
+        星空
         树
         枫树
         银杏
@@ -128,12 +141,15 @@
         晚霞背景
         向日葵背景
         风
+        云
         空中有花瓣
         空中有水滴
         阳光
         草地
         南极
         穹顶
+        自行车
+        楼房
       </p>
 
       <p>
@@ -150,9 +166,12 @@
       </p>
 
       <p>
-        输入图像特征，如：<b>樱花，浅色长发，粉色外套</b> 
+        输入图像特征，如：
+        <br>
+        <b>樱花，浅色长发，白色裙子，粉色外套，棕色瞳孔</b> 
+        <br>
+        <b>晚霞背景，短发，紫色瞳孔，校服</b>
       </p>
-      
     </p>
   </div>
 
@@ -171,24 +190,11 @@
   <div id="targetdiv"></div>
 
   <script>
-    // function sender() {
-    //   if(event.keyCode===13){ // 回车
-    //      cheatepic()
-    //   }
-    // }
-
     var img = document.getElementById("img"); // 获取显示图片的div元素
     var input = document.getElementById("file_input"); // 获取选择图片的input元素
 
-
-    // 判断本浏览器是否支持这个API。
-    if (typeof FileReader === 'undefined') {
-        aaa.innerHTML = "抱歉，你的浏览器不支持 FileReader";
-        input.setAttribute('disabled', 'disabled');
-    } else {
-        input.addEventListener('change', readFile, false); // 如果支持就监听改变事件，一旦改变了就运行readFile函数。
-    }
-
+    input.addEventListener('change', readFile, false); // 如果支持就监听改变事件，一旦改变了就运行readFile函数。
+    
     function cheatepic(){
       var temp=document.form1.txt1.value;   // 这里第一个“.”后面必须是form标签的name而不能是id；而第二个“.”后id和name均可。
       var fileroad = "pic-dataset/"+temp+".png"; // 获取file对象
